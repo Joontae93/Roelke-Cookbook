@@ -1,0 +1,47 @@
+---
+const filters = [
+	{
+		label: 'Cuisine',
+		id: 'cuisine',
+		options: [
+			{ label: 'Italian', value: 'italian' },
+			{ label: 'Mexican', value: 'mexican' },
+			{ label: 'American', value: 'american' },
+			{ label: 'Japanese', value: 'japanese' },
+			{ label: 'Korean', value: 'korean' },
+			{ label: 'Chinese', value: 'chinese' },
+			{ label: 'Thai', value: 'thai' },
+			{ label: 'Vietnamese', value: 'vietnamese' },
+			{ label: 'Indian', value: 'indian' },
+			{ label: 'French', value: 'french' },
+			{ label: 'Spanish', value: 'spanish' },
+			{ label: 'Greek', value: 'greek' },
+			{ label: 'Mediterranean', value: 'mediterranean' },
+			{ label: 'Middle Eastern', value: 'middle-eastern' },
+			{ label: 'African', value: 'african' },
+			{ label: 'Other', value: 'other' },
+		],
+	},
+];
+---
+
+<div class="input-group">
+	{
+		filters.map((filter) => (
+			<>
+				<label class="input-group-text" for={filter.id}>
+					{filter.label}
+				</label>
+				<select class="form-select" id={filter.id}>
+					<option selected>Choose...</option>
+					{filter.options.map((option) => (
+						<option value={option.value}>{option.label}</option>
+					))}
+				</select>
+			</>
+		))
+	}
+	<button class="btn btn-secondary" type="button" id="reset"
+		>Reset Filters</button
+	>
+</div>

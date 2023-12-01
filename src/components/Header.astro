@@ -1,0 +1,62 @@
+---
+import OffCanvas from './OffCanvas.astro';
+import SearchFilters from './SearchFilters.astro';
+interface Props {
+	withSearch: boolean;
+	withFilters: boolean;
+}
+const { withSearch, withFilters } = Astro.props;
+
+const innerWrapper =
+	'container-fluid gx-5 d-flex flex-wrap justify-content-between align-items-md-center';
+---
+
+<header class="mb-4 py-4">
+	<div class={innerWrapper}>
+		<a
+			href="/roelke-cookbook/"
+			class="d-flex align-items-center text-decoration-none h4"
+		>
+			Roelke Cookbook
+		</a>
+		{
+			withSearch && (
+				<form
+					class="d-flex flex-grow-1 mx-0 my-3 my-md-0 mx-md-5 order-3 order-md-2"
+					role="search"
+					action="/roelke-cookbook/search"
+				>
+					<input
+						class="form-control me-2"
+						type="search"
+						placeholder="Find something to eat"
+						aria-label="Search"
+					/>
+					<button class="btn btn-outline-secondary" type="submit">
+						Munch
+					</button>
+				</form>
+			)
+		}
+		<OffCanvas id="off-canvas-menu" classList="order-2 order-md-3">
+			<div>
+				Some text as placeholder. In real life you can have the elements
+				you have chosen. Like, text, images, lists, etc.
+			</div>
+			<ul>
+				<li><a href="#">Link</a></li>
+				<li><a href="#">Another Link</a></li>
+				<li>
+					<a href="#">Something else here</a>
+				</li>
+			</ul>
+		</OffCanvas>
+	</div>
+	{
+		withFilters && (
+			<div class={`bg-body-secondary py-3 ${innerWrapper}`}>
+				<SearchFilters />
+			</div>
+		)
+	}
+</header>

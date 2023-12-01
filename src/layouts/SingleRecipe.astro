@@ -1,0 +1,11 @@
+---
+import BlankHeaderFooterContainer from './BlankHeaderFooterContainer.astro';
+const { frontmatter } = Astro.props;
+---
+
+<BlankHeaderFooterContainer>
+	<h1>{frontmatter.title}</h1>
+	<main class="recipe">
+		<slot />
+	</main>
+</BlankHeaderFooterContainer>

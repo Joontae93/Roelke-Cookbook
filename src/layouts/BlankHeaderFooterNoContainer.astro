@@ -1,0 +1,28 @@
+---
+export interface BlankHeaderFooterContainer {
+	title: string;
+	withSearch?: boolean;
+	withFilters?: boolean;
+}
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const { title, withSearch = true, withFilters = true } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title} | Roelke Cookbook</title>
+	</head>
+	<body>
+		<Header withSearch={withSearch} withFilters={withFilters} />
+		<slot />
+		<Footer />
+	</body>
+</html>
+<style is:global lang="scss">
+	@use '../scss/styles.scss';
+</style>

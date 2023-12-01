@@ -1,0 +1,40 @@
+---
+export interface OffCanvas {
+	id: string;
+	direction?: 'start' | 'end' | 'top' | 'bottom';
+	classList?: string;
+}
+import hamburger from '../assets/hamburger.svg?raw';
+const { id, direction = 'end', classList } = Astro.props;
+---
+
+<button
+	class={classList}
+	type="button"
+	data-bs-toggle="offcanvas"
+	data-bs-target={`#${id}`}
+	aria-controls={id}
+	set:html={hamburger}
+/>
+
+<div
+	class={`offcanvas offcanvas-${direction}`}
+	tabindex="-1"
+	id={id}
+	aria-labelledby={`${id}Label`}
+>
+	<div class="offcanvas-header">
+		<!-- <h5 class="offcanvas-title" id={`${id}Label`}></h5> -->
+		<button
+			type="button"
+			class="btn-close"
+			data-bs-dismiss="offcanvas"
+			aria-label="Close"></button>
+	</div>
+	<div class="offcanvas-body">
+		<slot />
+	</div>
+</div>
+<script>
+	import Offcanvas from 'bootstrap/js/dist/offcanvas';
+</script>

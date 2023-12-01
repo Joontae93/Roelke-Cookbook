@@ -1,0 +1,20 @@
+---
+export interface BlankHeaderFooterContainer {
+	title: string;
+	withSearch?: boolean;
+	withFilters?: boolean;
+}
+
+import BlankHeaderFooterNoContainer from './BlankHeaderFooterNoContainer.astro';
+const { title, withSearch = true, withFilters = true } = Astro.props;
+---
+
+<BlankHeaderFooterNoContainer
+	title={title}
+	withSearch={withSearch}
+	withFilters={withFilters}
+>
+	<div class="container">
+		<slot />
+	</div>
+</BlankHeaderFooterNoContainer>
