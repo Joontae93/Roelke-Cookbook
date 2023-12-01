@@ -1,5 +1,5 @@
 ---
-import placeholder from '../assets/image-placeholder.jpg';
+// import placeholder from '../assets/image-placeholder.jpg';
 import { Picture } from 'astro:assets';
 
 const { title, text, image } = Astro.props;
@@ -8,8 +8,8 @@ const { title, text, image } = Astro.props;
 <div class="card">
 	<div class="row g-0">
 		<div class="col-md-4">
-			<Picture
-				src={placeholder}
+			<img
+				src="#"
 				alt={image.alt ?? 'image placeholder'}
 				class="img-fluid rounded-start"
 			/>
