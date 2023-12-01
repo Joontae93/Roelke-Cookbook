@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@wordpress/prettier-config": "^3.4.0",
-    "eslint-config-react-app": "^7.0.1"
+    "eslint-config-react-app": "^7.0.1",
+    "sass": "^1.69.5"
   }
 }
