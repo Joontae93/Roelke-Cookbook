@@ -1,13 +1,14 @@
 ---
 import RecipePreviewCard from '../components/RecipePreviewCard.astro';
 import BlankHeaderFooterContainer from '../layouts/BlankHeaderFooterContainer.astro';
+import { getCollection } from 'astro:content';
 
 const request = await Astro.request.url;
 const url = new URL(request);
 const searchParams = new URLSearchParams(url.search);
 const query = searchParams.get('query');
 
-const allPosts = await Astro.glob('../pages/recipes/*.md');
+const allPosts = await getCollection('recipes');
 ---
 
 <BlankHeaderFooterContainer title="Search Results">
@@ -19,12 +20,10 @@ const allPosts = await Astro.glob('../pages/recipes/*.md');
 			{
 				allPosts.map((post) => (
 					<li class="d-block overflow-hidden border-1 border border-secondary overflow-hidden rounded-3 shadow my-3">
-						<a href={post.url}>
-							<RecipePreviewCard
-								title={post.frontmatter.title}
-								text={post.frontmatter.excerpt}
-								image={post.frontmatter.image}
-							/>
+						<a
+							href={`/roelke-cookbook/${post.collection}/${post.slug}`}
+						>
+							<RecipePreviewCard data={post.data} />
 						</a>
 					</li>
 				))

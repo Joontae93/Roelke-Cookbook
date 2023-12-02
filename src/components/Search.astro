@@ -1,29 +1,29 @@
----
-const placeholders = [
-	'Pizza',
-	'Burger',
-	'Sushi',
-	'Pasta',
-	'Tacos',
-	'Curry',
-	'Salad',
-	'Steak',
-	'Ice Cream',
-	'Smoothie',
-];
-
-const randomPlaceholder =
-	placeholders[Math.floor(Math.random() * placeholders.length)];
----
-
 <form class="mb-3" action="/roelke-cookbook/search">
 	<label for="search" class="form-label display-1"
 		>Find something to eat</label
 	>
-	<input
-		type="text"
-		class="form-control"
-		id="search"
-		placeholder={randomPlaceholder}
-	/>
+	<input type="text" class="form-control" id="search" placeholder="Korean" />
 </form>
+<script>
+	function randomizePlaceholder() {
+		const placeholders = [
+			'Pizza',
+			'Burger',
+			'Sushi',
+			'Pasta',
+			'Tacos',
+			'Curry',
+			'Salad',
+			'Steak',
+			'Ice Cream',
+			'Smoothie',
+		];
+		const randomPlaceholder =
+			placeholders[Math.floor(Math.random() * placeholders.length)];
+		const searchInput = document.getElementById(
+			'search'
+		) as HTMLInputElement;
+		searchInput.placeholder = randomPlaceholder;
+	}
+	randomizePlaceholder();
+</script>
