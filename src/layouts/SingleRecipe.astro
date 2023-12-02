@@ -1,9 +1,12 @@
 ---
+// import { Image } from 'astro:assets';
 import BlankHeaderFooterContainer from './BlankHeaderFooterContainer.astro';
+
 const { frontmatter } = Astro.props;
 ---
 
-<BlankHeaderFooterContainer>
+<BlankHeaderFooterContainer title={frontmatter.title}>
+	<!-- <Image src={frontmatter.cover} alt={frontmatter.coverAlt} /> -->
 	<h1>{frontmatter.title}</h1>
 	<main class="recipe">
 		<slot />

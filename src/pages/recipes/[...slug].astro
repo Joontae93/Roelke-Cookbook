@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import SingleRecipe from '../../layouts/SingleRecipe.astro';
+
+export async function getStaticPaths() {
+	const recipes = await getCollection('recipes');
+	return recipes.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<SingleRecipe frontmatter={entry.data}>
+	<Content />
+</SingleRecipe>

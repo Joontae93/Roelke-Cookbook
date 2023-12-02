@@ -1,10 +1,8 @@
 ---
-layout: '../../layouts/SingleRecipe.astro'
 title: Homemade Flour Tortillas
 excerpt: 'Nothing beats the joy of crafting my cherished homemade flour tortillas. The recipe, passed down through generations, intertwines simplicity with tradition. Combining the basics—flour, a dash of salt, water, and a hint of olive oil—yields a dough that feels familiar yet holds the promise of something special.'
-image:
-    src: '../../assets/image-placeholder.jpg'
-    alt: 'homemade flour tortillas image'
+cover: '../../assets/image-placeholder.jpg'
+coverAlt: 'homemade flour tortillas image'
 ---
 
 ## Ingredients
