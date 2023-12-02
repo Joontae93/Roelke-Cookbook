@@ -8,6 +8,13 @@ import hamburger from '../assets/hamburger.svg?raw';
 const { id, direction = 'end', classList } = Astro.props;
 ---
 
+<style lang="scss">
+	button {
+		border: none;
+		color: inherit;
+		background-color: transparent;
+	}
+</style>
 <button
 	class={classList}
 	type="button"
