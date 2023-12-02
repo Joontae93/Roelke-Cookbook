@@ -16,6 +16,25 @@ const { title, withSearch = true, withFilters = true } = Astro.props;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title} | Roelke Cookbook</title>
+		<script is:inline>
+			(function () {
+				var date = new Date();
+				date.setDate(date.getDate() + 7);
+				var expires = '; expires=' + date.toUTCString();
+
+				var darkModeCookie = document.cookie
+					.split('; ')
+					.find((cookie) => cookie.startsWith('darkMode='));
+				var darkMode = darkModeCookie
+					? darkModeCookie.split('=')[1] === 'true'
+					: window.matchMedia('(prefers-color-scheme: dark)').matches;
+				document.cookie = 'darkMode=' + darkMode + expires + '; path=/';
+				document.documentElement.setAttribute(
+					'data-bs-theme',
+					darkMode ? 'dark' : 'light'
+				);
+			})();
+		</script>
 	</head>
 	<body>
 		<Header withSearch={withSearch} withFilters={withFilters} />

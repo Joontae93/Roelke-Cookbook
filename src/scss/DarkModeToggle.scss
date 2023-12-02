@@ -1,0 +1,56 @@
+.toggle {
+	display: flex;
+	align-items: stretch;
+	gap: 1rem;
+	// width: 5rem;
+}
+.toggle-switch {
+	position: relative;
+	width: 60px;
+	height: 34px;
+}
+
+.toggle-switch-label {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	transition: 0.4s;
+
+	:active .toggle-switch-inner {
+		width: 60px;
+	}
+}
+
+.toggle-switch-inner {
+	position: absolute;
+	left: 4px;
+	width: 26px;
+	height: 26px;
+	bottom: 4px;
+	background-color: white;
+	transition: 0.4s;
+}
+
+.toggle-switch-checkbox {
+	display: none;
+
+	&:checked {
+		& + .toggle-switch-label {
+			background-color: #2196f3;
+		}
+
+		& + .toggle-switch-label .toggle-switch-inner {
+			transform: translateX(26px);
+		}
+	}
+}
+
+.toggle-icon svg {
+	--size: 2.4rem;
+	width: var(--size);
+	height: var(--size);
+}
