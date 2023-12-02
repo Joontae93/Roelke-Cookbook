@@ -8,14 +8,22 @@ const { frontmatter } = Astro.props;
 <BlankHeaderFooterContainer title={frontmatter.title}>
 	<div class="row">
 		<div class="col-8 col-lg-6">
-			<Image src={frontmatter.cover} alt={frontmatter.coverAlt} />
+			<Image
+				src={frontmatter.cover}
+				alt={frontmatter.coverAlt}
+				class="object-fit-cover w-100 h-100"
+			/>
 		</div>
 		<div class="col-4 col-lg-6">
 			<h1>{frontmatter.title}</h1>
 			<p>{frontmatter.excerpt}</p>
+			<div class="my-5 text-bg-primary border border-2 rounded p-3">
+				<h2>Meta information</h2>
+				<p>Toggles and controls can go here.</p>
+			</div>
+			<main class="recipe my-5">
+				<slot />
+			</main>
 		</div>
-		<main class="recipe row">
-			<slot />
-		</main>
 	</div>
 </BlankHeaderFooterContainer>
